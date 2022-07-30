@@ -1,7 +1,5 @@
 FROM python:3.7-alpine3.15
 
-VOLUME app
-
 COPY src/ /app
 
 WORKDIR /app
@@ -14,9 +12,6 @@ ENV ZONE_ID="" \
     RECORD_ID="none" \
     CHECK_INTERVAL=86400
 
-COPY secrets.php /app/secrets.php
-COPY secrets-entrypoint /app/secrets-entrypoint
-
-RUN chmod +x /app/secrets-entrypoint
+RUN chmod +x /secrets-entrypoint
     
-ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh", "secrets-entrypoint"]
+ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh", "/app/secrets-entrypoint"]
