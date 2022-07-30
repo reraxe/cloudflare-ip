@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN pip3 install -r requirements.txt
 
-RUN --mount=type=secret,id=cf_api_key source /run/secrets/cf_api_key
+RUN --mount=type=secret,id=cfip /run/secrets/cfip
 
 ENV ZONE_ID="" \
     EMAIL="" \
