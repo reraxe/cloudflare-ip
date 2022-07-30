@@ -12,6 +12,6 @@ ENV ZONE_ID="" \
     RECORD_ID="none" \
     CHECK_INTERVAL=86400
 
-RUN chmod +x /secrets-entrypoint
+RUN chmod +x /app/secrets-entrypoint
     
 ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh", "/app/secrets-entrypoint"]
