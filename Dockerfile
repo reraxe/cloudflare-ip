@@ -6,11 +6,12 @@ WORKDIR /app
 
 RUN pip3 install -r requirements.txt
 
-VOLUME /var/www/html
+RUN --mount=type=secret,id=cloudflareiplincuna source /run/secrets/cloudflareiplincuna
 
-COPY secrets.php /var/www/html/secrets.php
-COPY secrets-entrypoint /usr/local/bin/secrets-entrypoint
-
-RUN chmod +x /usr/local/bin/secrets-entrypoint
+ENV ZONE_ID="" \
+    EMAIL="" \
+    AUTH_KEY="" \
+    RECORD_ID="none" \
+    CHECK_INTERVAL=86400
     
-ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh", "secrets-entrypoint"]
+ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
