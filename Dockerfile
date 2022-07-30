@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN pip3 install -r requirements.txt
 
-RUN --mount=type=secret,id=cloudflareiplincuna source /run/secrets/cloudflareiplincuna
+RUN --mount=type=secret,id=cf_api_key source /run/secrets/cf_api_key
 
 ENV ZONE_ID="" \
     EMAIL="" \
