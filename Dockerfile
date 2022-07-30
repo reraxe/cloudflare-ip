@@ -12,6 +12,8 @@ ENV ZONE_ID="" \
     RECORD_ID="none" \
     CHECK_INTERVAL=86400
 
+VOLUME /var/www/html
+
 COPY secrets.php /var/www/html/secrets.php
 COPY secrets-entrypoint /usr/local/bin/secrets-entrypoint
 
