@@ -10,7 +10,7 @@ RUN --mount=type=secret,id=cfip /run/secrets/cfip
 
 ENV ZONE_ID="" \
     EMAIL="" \
-    AUTH_KEY="" \
+    AUTH_KEY="/run/secrets/cfip" \
     RECORD_ID="none" \
     CHECK_INTERVAL=86400
     
