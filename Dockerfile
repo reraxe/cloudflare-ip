@@ -1,5 +1,7 @@
 FROM python:3.7-alpine3.15
 
+VOLUME app
+
 COPY src/ /app
 
 WORKDIR /app
