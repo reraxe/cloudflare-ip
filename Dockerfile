@@ -2,6 +2,8 @@ FROM python:3.7-alpine3.15
 
 COPY src/ /app
 
+VOLUME app
+
 WORKDIR /app
 
 RUN pip3 install -r requirements.txt
