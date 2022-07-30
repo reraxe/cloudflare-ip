@@ -6,6 +6,11 @@ WORKDIR /app
 
 RUN pip3 install -r requirements.txt
 
-RUN chmod +x /app/secrets-entrypoint
+VOLUME /var/www/html
+
+COPY secrets.php /var/www/html/secrets.php
+COPY secrets-entrypoint /usr/local/bin/secrets-entrypoint
+
+RUN chmod +x /usr/local/bin/secrets-entrypoint
     
-ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh", "/app/secrets-entrypoint"]
+ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh", "secrets-entrypoint"]
