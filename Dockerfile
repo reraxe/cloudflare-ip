@@ -10,7 +10,7 @@ RUN --mount=type=secret,id=cfapi cat /run/secrets/cfapi
 
 ENV ZONE_ID="" \
     EMAIL="" \
-    #AUTH_KEY="" \
+    AUTH_KEY="/run/secrets/cfapi" \
     RECORD_ID="none" \
     CHECK_INTERVAL=86400
     
