@@ -1,8 +1,8 @@
 FROM python:3.7-alpine3.15
 
-COPY src/ /app
-
 VOLUME app
+
+COPY src/ /app
 
 WORKDIR /app
 
