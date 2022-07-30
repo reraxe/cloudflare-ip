@@ -6,11 +6,11 @@ WORKDIR /app
 
 RUN pip3 install -r requirements.txt
 
-RUN --mount=type=secret,id=cf_api_key cat /run/secrets/cf_api_key
+RUN --mount=type=secret,id=cfapi cat /run/secrets/cfapi
 
 ENV ZONE_ID="" \
     EMAIL="" \
-    AUTH_KEY="/run/secrets/cf_api_key" \
+    AUTH_KEY="" \
     RECORD_ID="none" \
     CHECK_INTERVAL=86400
     
